@@ -10,7 +10,9 @@ marks3 = int(input("Enter your math marks : "))
 total_marks = marks1 + marks2 + marks3
 average_marks = total_marks / 3
 
-
+print("===============================")
+print("         STUDENT REPORT        ")
+print("===============================")
 print("Student's name:", name)
 print("Student's age:", age)
 print("Student's city:", city)
