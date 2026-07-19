@@ -1,30 +1,21 @@
 # Project Name : Student Report Card
-# Created By   : Rishabh Kumar
-# Language     : Python
-# Description  : This program takes student's details and
-#                marks of five subjects, calculates total,
-#                percentage, grade, and pass/fail status.
+# Created By : Rishabh Kumar
+# Language : Python
+# Description : This program takes student details,
+# marks of five subjects, calculates total marks,
+# percentage, grade and pass/fail result.
 
-# Take Student Details
-
-# Enter student's name
+# Take student's basic details
 name = input("Enter Student Name: ")
-
-# Enter student's roll number
 roll_no = input("Enter Roll Number: ")
-
-# Enter student's class
 student_class = input("Enter Class: ")
 
-# Take Marks of Five Subjects
-
+# Take marks of five subjects
 english = float(input("Enter English Marks: "))
 math = float(input("Enter Math Marks: "))
 science = float(input("Enter Science Marks: "))
 computer = float(input("Enter Computer Marks: "))
 hindi = float(input("Enter Hindi Marks: "))
-
-# Calculate Total and Percentage
 
 # Calculate total marks
 total = english + math + science + computer + hindi
@@ -32,8 +23,7 @@ total = english + math + science + computer + hindi
 # Calculate percentage
 percentage = total / 5
 
-# Calculate Grade
-
+# Decide grade
 if percentage >= 90:
     grade = "A+"
 
@@ -52,39 +42,32 @@ elif percentage >= 33:
 else:
     grade = "F"
 
-# Check Pass or Fail
-
+# Check pass or fail
 if percentage >= 33:
     result = "PASS"
-
 else:
     result = "FAIL"
 
-# Display Student Report Card
-
-print("\n==========================================")
-print("           STUDENT REPORT CARD")
-print("==========================================")
+# Display report card
+print("\n========== STUDENT REPORT CARD ==========")
 
 print("Student Name :", name)
 print("Roll Number  :", roll_no)
 print("Class        :", student_class)
 
-print("------------------------------------------")
+print("\n========== SUBJECT MARKS ==========")
 
-print("English      :", english)
-print("Math         :", math)
-print("Science      :", science)
-print("Computer     :", computer)
-print("Hindi        :", hindi)
+print("English  :", english)
+print("Math     :", math)
+print("Science  :", science)
+print("Computer :", computer)
+print("Hindi    :", hindi)
 
-print("------------------------------------------")
+print("\n========== RESULT ==========")
 
-print("Total Marks  :", total)
-print("Percentage   :", percentage, "%")
-print("Grade        :", grade)
-print("Result       :", result)
+print("Total Marks :", total)
+print("Percentage  :", round(percentage, 2), "%")
+print("Grade       :", grade)
+print("Result      :", result)
 
-print("==========================================")
-print("🎉 Report Card Generated Successfully!")
-print("==========================================")
+print("\n🎉 Report Card Generated Successfully!")

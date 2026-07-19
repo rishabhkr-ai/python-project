@@ -1,45 +1,54 @@
 # Project Name : Password Retry System
-# Created By   : Rishabh Kumar
-# Language     : Python
-# Description  : A simple password authentication system.
-#                The user gets only 3 attempts to enter
-#                the correct password.
+# Created By : Rishabh Kumar
+# Language : Python
+# Description : This program allows the user
+# to enter the correct password.
+# The user gets only 3 attempts.
 
 # Store the correct password
-password = "python123"
+correct_password = "python123"
 
-# Maximum number of login attempts
+# Maximum login attempts
 max_attempts = 3
 
+# Count current attempts
+attempt = 1
 
-# Keep asking for the password until attempts become 0
-while max_attempts > 0:
+# Program keeps running until attempts are finished
+while attempt <= max_attempts:
 
-    # Ask the user to enter the password
-    user_password = input("Enter your password: ")
+    # Ask user to enter password
+    user_password = input("\nEnter your password: ").strip()
 
-    # Check if the entered password is correct
-    if user_password == password:
+    # Check if password is empty
+    if user_password == "":
+        print("❌ Password cannot be empty.")
+        continue
 
-        # Login successful
-        print("\n✅ Access Granted")
+    # Check password
+    if user_password == correct_password:
+
+        print("\n✅ Login Successful")
         print("🎉 Welcome Rishabh!")
+        print("😊 Access Granted")
 
-        # Exit the loop because login is successful
         break
 
     else:
-        # Password is incorrect
+
+        # Show remaining attempts
+        remaining = max_attempts - attempt
+
         print("\n❌ Incorrect Password.")
 
-        # Reduce the remaining attempts by 1
-        max_attempts -= 1
+        if remaining > 0:
+            print(f"🔁 Attempts Left : {remaining}")
 
-        # Show how many attempts are left
-        print("Attempts Left:", max_attempts)
+        attempt += 1
 
-# This else block runs only if the while loop
-# finishes without executing the break statement.
+# This block runs only if all attempts are used
 else:
-    print("\n🔒 Account Locked!")
-    print("Please try again later.")
+
+    print("\n🔒 Account Locked")
+    print("❌ You have used all login attempts.")
+    print("⏳ Please try again later.")

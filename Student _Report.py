@@ -1,64 +1,86 @@
 # Project Name : Student Report
-# Created By   : Rishabh Kumar
-# Language     : Python
-# Description  : This program collects student information,
-#                calculates total marks and average marks,
-#                and displays a formatted student report.
+# Created By : Rishabh Kumar
+# Language : Python
+# Description : This program stores student details,
+# calculates total marks, average, percentage,
+# grade and displays a student report.
 
-# Take student's basic information
-
-# Ask the user to enter student's name
-name = input("Enter your name: ")
-
-# Ask the user to enter student's age
-age = int(input("Enter your age: "))
-
-# Ask the user to enter student's city
-city = input("Enter your city: ")
+# Ask student details
+name = input("Enter Student Name : ").strip().title()
+age = int(input("Enter Student Age : "))
+city = input("Enter Student City : ").strip().title()
 
 # Take subject marks
+try:
+    physics = float(input("Enter Physics Marks : "))
+    chemistry = float(input("Enter Chemistry Marks : "))
+    mathematics = float(input("Enter Mathematics Marks : "))
+except ValueError:
+    print("❌ Please enter valid marks.")
+    exit()
 
-# Enter Physics marks
-physics_marks = int(input("Enter your Physics marks: "))
-
-# Enter Chemistry marks
-chemistry_marks = int(input("Enter your Chemistry marks: "))
-
-# Enter Mathematics marks
-math_marks = int(input("Enter your Math marks: "))
-
-# Perform Calculations
+# Check marks are between 0 and 100
+if (
+    physics < 0 or physics > 100 or
+    chemistry < 0 or chemistry > 100 or
+    mathematics < 0 or mathematics > 100
+):
+    print("❌ Marks should be between 0 and 100.")
+    exit()
 
 # Calculate total marks
-total_marks = physics_marks + chemistry_marks + math_marks
+total = physics + chemistry + mathematics
 
-# Calculate average marks
-average_marks = total_marks / 3
+# Calculate average
+average = total / 3
 
-# Display Student Report
+# Calculate percentage
+percentage = (total / 300) * 100
 
-print("\n===================================")
-print("         STUDENT REPORT")
-print("===================================")
+# Decide grade
+if percentage >= 90:
+    grade = "A+"
 
-# Display student details
-print("Name            :", name)
-print("Age             :", age)
-print("City            :", city)
+elif percentage >= 80:
+    grade = "A"
 
-print("-----------------------------------")
+elif percentage >= 70:
+    grade = "B"
 
-# Display subject marks
-print("Physics Marks   :", physics_marks)
-print("Chemistry Marks :", chemistry_marks)
-print("Math Marks      :", math_marks)
+elif percentage >= 60:
+    grade = "C"
 
-print("-----------------------------------")
+elif percentage >= 33:
+    grade = "D"
 
-# Display calculated results
-print("Total Marks     :", total_marks)
-print("Average Marks   :", average_marks)
+else:
+    grade = "F"
 
-print("===================================")
-print("Report Generated Successfully ✅")
-print("===================================")
+# Decide result
+if percentage >= 33:
+    result = "PASS"
+else:
+    result = "FAIL"
+
+# Display report
+print("\n========== STUDENT REPORT ==========")
+
+print(f"Name       : {name}")
+print(f"Age        : {age}")
+print(f"City       : {city}")
+
+print("\n========== SUBJECT MARKS ==========")
+
+print(f"Physics    : {physics}")
+print(f"Chemistry  : {chemistry}")
+print(f"Mathematics: {mathematics}")
+
+print("\n========== RESULT ==========")
+
+print(f"Total Marks : {total}/300")
+print(f"Average     : {round(average, 2)}")
+print(f"Percentage  : {round(percentage, 2)}%")
+print(f"Grade       : {grade}")
+print(f"Result      : {result}")
+
+print("\n🎉 Report Generated Successfully!")

@@ -1,94 +1,85 @@
 # Project Name : Calculator Using Functions
-# Created By   : Rishabh Kumar
-# Language     : Python
-# Description  : A simple calculator program using functions.
-#                It performs Addition, Subtraction,
-#                Multiplication, and Division.
+# Created By : Rishabh Kumar
+# Language : Python
+# Description : This program performs basic calculator
+# operations using Python functions.
 
-# Function for Addition
-def addition(a, b):
-    # Return the sum of two numbers
-    return a + b
-
-# Function for Subtraction
-def subtraction(a, b):
-    # Return the difference of two numbers
-    return a - b
-
-# Function for Multiplication
-def multiplication(a, b):
-    # Return the product of two numbers
-    return a * b
-
-# Function for Division
-def division(a, b):
-    # Return the division of two numbers
-    return a / b
+# Function to add two numbers
+def addition(num1, num2):
+    return num1 + num2
 
 
-# Display Calculator Menu
-print("========== CALCULATOR ==========")
-print("1. Addition")
-print("2. Subtraction")
-print("3. Multiplication")
-print("4. Division")
+# Function to subtract two numbers
+def subtraction(num1, num2):
+    return num1 - num2
 
 
-# Take user's choice
-choice = int(input("Enter your choice: "))
+# Function to multiply two numbers
+def multiplication(num1, num2):
+    return num1 * num2
 
-# Option 1 : Addition
-if choice == 1:
 
-    # Take first number
-    num1 = int(input("Enter first number: "))
+# Function to divide two numbers
+def division(num1, num2):
+    return num1 / num2
 
-    # Take second number
-    num2 = int(input("Enter second number: "))
 
-    # Call addition function and print the result
-    print("Answer =", addition(num1, num2))
+# Program keeps running until user exits
+while True:
 
-# Option 2 : Subtraction
-elif choice == 2:
+    print("\n========== CALCULATOR ==========")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Exit")
 
-    # Take first number
-    num1 = int(input("Enter first number: "))
+    # Take menu choice
+    try:
+        choice = int(input("\nEnter your choice: "))
+    except ValueError:
+        print("❌ Please enter a number between 1 and 5.")
+        continue
 
-    # Take second number
-    num2 = int(input("Enter second number: "))
+    # Exit program
+    if choice == 5:
+        print("\n🙏 Thank You For Using Calculator.")
+        break
 
-    # Call subtraction function and print the result
-    print("Answer =", subtraction(num1, num2))
+    # Check valid choice
+    if choice < 1 or choice > 5:
+        print("❌ Invalid Choice.")
+        continue
 
-# Option 3 : Multiplication
-elif choice == 3:
+    # Take numbers from user
+    try:
+        num1 = float(input("Enter first number : "))
+        num2 = float(input("Enter second number : "))
+    except ValueError:
+        print("❌ Please enter valid numbers.")
+        continue
 
-    # Take first number
-    num1 = int(input("Enter first number: "))
+    # Addition
+    if choice == 1:
 
-    # Take second number
-    num2 = int(input("Enter second number: "))
+        print(f"\n✅ Answer = {addition(num1, num2)}")
 
-    # Call multiplication function and print the result
-    print("Answer =", multiplication(num1, num2))
+    # Subtraction
+    elif choice == 2:
 
-# Option 4 : Division
-elif choice == 4:
+        print(f"\n✅ Answer = {subtraction(num1, num2)}")
 
-    # Take first number
-    num1 = int(input("Enter first number: "))
+    # Multiplication
+    elif choice == 3:
 
-    # Take second number
-    num2 = int(input("Enter second number: "))
+        print(f"\n✅ Answer = {multiplication(num1, num2)}")
 
-    # Check division by zero
-    if num2 != 0:
-        # Call division function and print the result
-        print("Answer =", division(num1, num2))
-    else:
-        print("Error! Division by zero is not allowed.")
+    # Division
+    elif choice == 4:
 
-# Invalid Choice
-else:
-    print("Invalid Choice! Please select a number between 1 and 4.")
+        # Check division by zero
+        if num2 == 0:
+            print("❌ Division by zero is not allowed.")
+
+        else:
+            print(f"\n✅ Answer = {division(num1, num2)}")

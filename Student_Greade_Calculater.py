@@ -4,38 +4,36 @@
 # Description  : This program takes student's marks as input
 #                and displays the grade based on marks.
 
-# Take marks as input from the user
-
+# Ask the user to enter marks
 marks = int(input("Enter student's marks (0-100): "))
 
-# Validate the marks
-# Marks should be between 0 and 100
-
+# Check if marks are valid
 if marks < 0 or marks > 100:
     print("❌ Invalid Marks! Please enter marks between 0 and 100.")
 
+# Check the grade
 else:
 
-    # Grade A+
+    # Marks 90 or above
     if marks >= 90:
         print("🎉 Grade : A+")
 
-    # Grade A
+    # Marks 80 to 89
     elif marks >= 80:
         print("🎉 Grade : A")
 
-    # Grade B
+    # Marks 70 to 79
     elif marks >= 70:
         print("👍 Grade : B")
 
-    # Grade C
+    # Marks 60 to 69
     elif marks >= 60:
         print("🙂 Grade : C")
 
-    # Grade D (Pass)
+    # Marks 33 to 59
     elif marks >= 33:
         print("✅ Grade : D (Pass)")
 
-    # Fail
+    # Marks below 33
     else:
         print("❌ Grade : Fail")
